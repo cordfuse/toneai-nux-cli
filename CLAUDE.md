@@ -116,7 +116,7 @@ bun build src/cli.ts --compile --outfile tnqr   # standalone binary
 - `qrcode` — QR code generation to PNG buffer
 - `@napi-rs/canvas` — PNG composition for decorated QR images (chosen over sharp because sharp native binaries can't be bundled into Bun SEA)
 
-Note: `jszip` was removed in v1.3.1. The `--zip` / `-z` / `TNQR_ZIP` flag no longer exists. Cloud export (`--gdrive`, `--dropbox`, `--onedrive`) is planned for v1.4.0.
+Note: `jszip` was removed in v1.3.1. The `--zip` / `-z` / `TNQR_ZIP` flag no longer exists. Cloud export (`--gdrive`, `--dropbox`, `--onedrive`) is planned for v1.5.0.
 
 ## Versioning
 
@@ -140,9 +140,10 @@ GitHub Actions on `v*` tags:
 ## Roadmap
 
 See `ROADMAP.md` in the repo root for the full feature roadmap:
-- **v1.4.0** — Cloud export (Google Drive, Dropbox, OneDrive), zip removal, post-install dialogs
-- **v1.5.0** — First-run onboarding, `--chat` guided mode, shell profile setup
-- **v1.6.0** — Spotify integration (TUI browser + direct URL/URI mode, unified OAuth)
+- **v1.4.0** ✓ — Device expansion: 20BT/40BT/60BT MkII (Pro, QR IDs 21/22/23), Mighty Go (Standard PlugAir, QR ID 10), Mighty 40BT as separate entry (QR ID 8)
+- **v1.5.0** — Cloud export (Google Drive, Dropbox, OneDrive), zip removal, post-install dialogs
+- **v1.6.0** — First-run onboarding, `--chat` guided mode, shell profile setup
+- **v1.7.0** — Spotify integration (TUI browser + direct URL/URI mode, unified OAuth)
 
 ## TODO
 

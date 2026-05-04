@@ -1,9 +1,10 @@
 # toneai-nux-qr — Feature Roadmap
 
 ## v1.3.x — `--cost` Usage Summary
-## v1.4.0 — Cloud Export
-## v1.5.0 — First-Run Onboarding + Chat Mode
-## v1.6.0 — Spotify TUI Browser
+## v1.4.0 ✓ — Device expansion (20BT/40BT/60BT MkII, Mighty Go, 40BT)
+## v1.5.0 — Cloud Export
+## v1.6.0 — First-Run Onboarding + Chat Mode
+## v1.7.0 — Spotify TUI Browser
 
 ---
 
@@ -57,6 +58,7 @@ Add optional upload of QR code PNGs to Google Drive, Dropbox, and/or OneDrive. E
 | v1.3.0 | `--delete`, double Ctrl+C force quit, `[y/N/a(ll)]` confirm, `resolveRuns()` refactor |
 | v1.3.1 | Removed `--zip` / `-z` / `TNQR_ZIP` and `jszip` dependency |
 | v1.3.2 | Incremental JSONL logging — survives crashes mid-run |
+| v1.4.0 | Device expansion — 20BT/40BT/60BT MkII (Pro format, QR IDs 21/22/23), Mighty Go (Standard PlugAir format, QR ID 10), Mighty 40BT as separate entry (QR ID 8) |
 
 Cloud export slots naturally after the generation loop. The `RunLogger` flush already captures `outputDir` — add upload URLs to it.
 

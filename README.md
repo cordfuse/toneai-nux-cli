@@ -156,7 +156,7 @@ tnqr "physical graffiti" -d all -F "{device}/{artist}-{album}"
 tnqr "kashmir" -f "{track}-{song}-{preset}"
 ```
 
-Each PNG is a decorated QR code with the app name and version in the header, and the artist, song, and device in the footer. Pro format devices (Plug Pro, Space, Lite MkII, 8BT MkII) embed the preset name directly in the QR payload.
+Each PNG is a decorated QR code with the app name and version in the header, and the artist, song, and device in the footer. Pro format devices (Plug Pro, Space, Lite MkII, 8BT MkII, 20BT MkII, 40BT MkII, 60BT MkII) embed the preset name directly in the QR payload.
 
 ---
 
@@ -207,13 +207,18 @@ Empty folders are cleaned up automatically.
 | `space` | Mighty Space | Pro (113 bytes) |
 | `litemk2` | Mighty Lite MkII | Pro (113 bytes) |
 | `8btmk2` | Mighty 8BT MkII | Pro (113 bytes) |
+| `20btmk2` | Mighty 20BT MkII | Pro (113 bytes) |
+| `40btmk2` | Mighty 40BT MkII | Pro (113 bytes) |
+| `60btmk2` | Mighty 60BT MkII | Pro (113 bytes) |
 | `plugair_v1` | Mighty Plug (v1) | Standard (40 bytes) |
 | `plugair_v2` | Mighty Plug (v2) | Standard (40 bytes) |
 | `mightyair_v1` | Mighty Air (v1) | Standard (40 bytes) |
 | `mightyair_v2` | Mighty Air (v2) | Standard (40 bytes) |
+| `mightygo` | Mighty Go | Standard (40 bytes) |
 | `lite` | Mighty Lite BT | Standard (40 bytes) |
 | `8bt` | Mighty 8BT | Standard (40 bytes) |
-| `2040bt` | Mighty 20/40BT | Standard (40 bytes) |
+| `2040bt` | Mighty 20/40BT (original) | Standard (40 bytes) |
+| `40bt` | Mighty 40BT (original) | Standard (40 bytes) |
 | `all` | All of the above | — |
 
 Device names are fuzzy-matched — `"plug pro"`, `"mighty air v2"`, `"lite bt"` all work.
