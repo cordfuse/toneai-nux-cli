@@ -105,11 +105,11 @@ export function buildQRString(p: ProPresetParams): string {
     payload = buildProPayload(p)
   } else {
     switch (p.device) {
-      case 'plugair_v1': case 'plugair_v2': case 'mightyair_v1': case 'mightyair_v2':
+      case 'plugair_v1': case 'plugair_v2': case 'mightyair_v1': case 'mightyair_v2': case 'mightygo':
         payload = buildPlugAirPayload(p); break
       case 'lite':   payload = buildLitePayload(p); break
       case '8bt':    payload = build8BTPayload(p); break
-      case '2040bt': payload = build2040BTPayload(p); break
+      case '2040bt': case '40bt': payload = build2040BTPayload(p); break
       default: throw new Error(`Unknown standard device: ${p.device}`)
     }
   }
@@ -166,7 +166,7 @@ export function coerceParams(raw: Record<string, unknown>, device: DeviceType): 
     master_db: n(raw.master_db, 0),
   }
 
-  if (device === '2040bt' && raw.wah && typeof raw.wah === 'object') {
+  if ((device === '2040bt' || device === '40bt') && raw.wah && typeof raw.wah === 'object') {
     const w = raw.wah as Record<string, unknown>
     coerced.wah = { enabled: b(w.enabled, false), pedal: n(w.pedal, 50) }
   }

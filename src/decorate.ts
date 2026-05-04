@@ -15,7 +15,7 @@ const TEXT_MAIN = '#ffffff'
 const TEXT_SUB  = '#aaaaaa'
 
 // Pro devices embed the preset name in the QR payload
-const PRO_DEVICES = new Set(['plugpro', 'space', 'litemk2', '8btmk2'])
+const PRO_DEVICES = new Set(['plugpro', 'space', 'litemk2', '8btmk2', '20btmk2', '40btmk2', '60btmk2'])
 
 export async function decorateQR(
   qrPng: Buffer,
