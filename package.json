@@ -15,7 +15,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/steve-krisjanovs/toneai-nux-qr.git"
+    "url": "https://github.com/steve-krisjanovs/toneai-nux-cli.git"
   },
   "type": "commonjs",
   "main": "dist/index.js",
