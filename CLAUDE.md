@@ -5,7 +5,7 @@
 
 A Node.js/TypeScript CLI npm package (`tnqr`) that generates NUX MightyAmp QR code tone presets for any album, song, live set, or artist vibe. Uses Claude (Sonnet for tone generation, Haiku for intent resolution) with native web search to research per-recording gear details before generating each preset.
 
-Companion to the web app at https://github.com/steve-krisjanovs/mighty-ai-qr-web — same QR encoding logic, same AI system prompt, but optimised for bulk album-scale generation rather than interactive single-tone refinement.
+Companion to the web app at https://github.com/cordfuse/mighty-ai-qr-web — same QR encoding logic, same AI system prompt, but optimised for bulk album-scale generation rather than interactive single-tone refinement.
 
 ## Architecture
 
@@ -15,7 +15,6 @@ src/
   ai.ts         — resolveIntent() and generateToneForSong() — all Anthropic API calls
   encoder.ts    — NUX QR binary payload encoding + coerceParams() for LLM output normalisation
   nux.ts        — device types, configs, and preset parameter interfaces
-  decorate.ts   — PNG decoration (header/footer) using @napi-rs/canvas
   progress.ts   — ProgressDisplay class, TTY-aware (fancy redraw vs plain line output)
   logger.ts     — RunLogger class, JSONL run logging, parseLog()/listRuns()/resolveRunPath() for resume
   config.ts     — API key resolution, first-run wizard, config stored at ~/.toneai-nux-qr/
@@ -114,13 +113,13 @@ bun build src/cli.ts --compile --outfile tnqr   # standalone binary
 
 - `@anthropic-ai/sdk` — Anthropic API client
 - `qrcode` — QR code generation to PNG buffer
-- `@napi-rs/canvas` — PNG composition for decorated QR images (chosen over sharp because sharp native binaries can't be bundled into Bun SEA)
+- `@cordfuse/nux-qr-tool` — QR card decoration (header/footer PNG composition); `@napi-rs/canvas` is a transitive dep through this package
 
 Note: `jszip` was removed in v1.3.1. The `--zip` / `-z` / `TNQR_ZIP` flag no longer exists. Cloud export (`--gdrive`, `--dropbox`, `--onedrive`) is planned for v1.5.0.
 
 ## Versioning
 
-`VERSION.txt` is the source of truth. `package.json` version must match. Both `cli.ts` and `decorate.ts` read the version from `package.json` at build time (via JSON import). When bumping the version, update both `VERSION.txt` and `package.json`.
+`VERSION.txt` is the source of truth. `package.json` version must match. `cli.ts` reads the version from `package.json` at build time (via JSON import). When bumping the version, update both `VERSION.txt` and `package.json`.
 
 **Output naming** is controlled by `--folder-format` (-F) and `--file-format` (-f) using Sonarr-style token templates: `{artist}`, `{album}`, `{track}`, `{song}`, `{preset}`, `{device}`. Empty tokens collapse cleanly. Single tracks omit `{track}`.
 
@@ -134,7 +133,7 @@ GitHub Actions on `v*` tags:
 
 ## Related
 
-- `mighty-ai-qr-web` — the web app this was extracted from. Same QR encoding, same system prompt, same Anthropic native web search approach. Use the web app for interactive single-tone refinement; use tnqr for bulk album generation.
+- `cordfuse/mighty-ai-qr-web` — the web app this was extracted from. Same QR encoding, same system prompt, same Anthropic native web search approach. Use the web app for interactive single-tone refinement; use tnqr for bulk album generation.
 - `winrawprinter` — another npm module by the same author
 
 ## Roadmap
