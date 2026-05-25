@@ -5,7 +5,7 @@ import path from 'node:path'
 import readline from 'node:readline'
 import { ALL_DEVICES, VALID_DEVICES, DEVICES } from './nux.js'
 import { generateQRPng } from './encoder.js'
-import { decorateQR } from './decorate.js'
+import { decorateQR } from '@cordfuse/nux-qr-tool'
 import { resolveIntent, generateToneForSong } from './ai.js'
 import type { ApiUsage } from './ai.js'
 import pricing from '../pricing.json'
@@ -535,7 +535,7 @@ async function main(): Promise<void> {
                 const qrRaw = await generateQRPng(params)
                 const { buildQRString } = await import('./encoder.js')
                 const qrString = buildQRString(params)
-                const png = await decorateQR(qrRaw, meta.artist, t.title, device, deviceInfo.displayName)
+                const png = await decorateQR(qrRaw, meta.artist, t.title, device, deviceInfo.displayName, { appName: pkg.name, appVersion: pkg.version })
                 fs.writeFileSync(outPath, png)
                 const elapsed = Date.now() - trackStart
                 progress.setDone(i, params.preset_name, elapsed)
@@ -727,7 +727,7 @@ async function main(): Promise<void> {
             const qrRaw = await generateQRPng(params)
             const { buildQRString } = await import('./encoder.js')
             const qrString = buildQRString(params)
-            const png = await decorateQR(qrRaw, artist, title, device, deviceInfo.displayName)
+            const png = await decorateQR(qrRaw, artist, title, device, deviceInfo.displayName, { appName: pkg.name, appVersion: pkg.version })
             fs.writeFileSync(outPath, png)
             const elapsed = Date.now() - trackStart
             progress.setDone(i, params.preset_name, elapsed)
