@@ -6,7 +6,7 @@
       "name": "toneai-nux-qr",
       "dependencies": {
         "@anthropic-ai/sdk": "^0.78.0",
-        "@cordfuse/nux-qr-tool": "^1.1.0",
+        "@cordfuse/nux-qr-tool": "^1.1.2",
         "qrcode": "^1.5.4",
       },
       "devDependencies": {
@@ -21,7 +21,7 @@
 
     "@babel/runtime": ["@babel/runtime@7.29.2", "", {}, "sha512-JiDShH45zKHWyGe4ZNVRrCjBz8Nh9TMmZG1kh4QTK8hCBTWBi8Da+i7s1fJw7/lYpM4ccepSNfqzZ/QvABBi5g=="],
 
-    "@cordfuse/nux-qr-tool": ["@cordfuse/nux-qr-tool@1.1.0", "", { "dependencies": { "@napi-rs/canvas": "^0.1.68", "qrcode": "^1.5.4" }, "bin": { "nux-qr-tool": "dist/qr-generator.js" } }, "sha512-M19FmNCL+9fr9ZbgK6v7iHVyx+Ke4bfF4crPbdIjc8jlnDVJ4Ia7AinWp4PgPhNTkjnUjPZYf95UVECgNVRQtQ=="],
+    "@cordfuse/nux-qr-tool": ["@cordfuse/nux-qr-tool@1.4.0", "", { "dependencies": { "@napi-rs/canvas": "^0.1.68", "qrcode": "^1.5.4" }, "bin": { "nux-qr-tool": "dist/qr-generator.js" } }, "sha512-TV6bhbrsFJVN+D6Q6KByn+StaHgJLKLDuKO1LSXTn/VUqsUyp8mW7KN01ghagP5NgaF72Fh1dahmdNDYbDuGpg=="],
 
     "@napi-rs/canvas": ["@napi-rs/canvas@0.1.97", "", { "optionalDependencies": { "@napi-rs/canvas-android-arm64": "0.1.97", "@napi-rs/canvas-darwin-arm64": "0.1.97", "@napi-rs/canvas-darwin-x64": "0.1.97", "@napi-rs/canvas-linux-arm-gnueabihf": "0.1.97", "@napi-rs/canvas-linux-arm64-gnu": "0.1.97", "@napi-rs/canvas-linux-arm64-musl": "0.1.97", "@napi-rs/canvas-linux-riscv64-gnu": "0.1.97", "@napi-rs/canvas-linux-x64-gnu": "0.1.97", "@napi-rs/canvas-linux-x64-musl": "0.1.97", "@napi-rs/canvas-win32-arm64-msvc": "0.1.97", "@napi-rs/canvas-win32-x64-msvc": "0.1.97" } }, "sha512-8cFniXvrIEnVwuNSRCW9wirRZbHvrD3JVujdS2P5n5xiJZNZMOZcfOvJ1pb66c7jXMKHHglJEDVJGbm8XWFcXQ=="],
 
