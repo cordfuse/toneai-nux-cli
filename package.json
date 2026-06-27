@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.78.0",
-    "@cordfuse/nux-qr-tool": "^1.4.1",
+    "@cordfuse/nux-qr-tool": "^1.5.0",
     "qrcode": "^1.5.4"
   },
   "devDependencies": {
