@@ -197,5 +197,51 @@ jobs:
             ---
             On first run, `tnqr` will walk you through setting up your Anthropic API key.
           files: release-assets/**/*
+
+  update-homebrew:
+    name: Update Homebrew formula
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get version
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Download macOS binaries
+        uses: actions/download-artifact@v4
+        with:
+          pattern: tnqr-mac-*
+          merge-multiple: true
+
+      - name: Compute SHA256
+        id: sha
+        run: |
+          echo "ARM64=$(sha256sum tnqr-mac-arm64 | awk '{print $1}')" >> "$GITHUB_OUTPUT"
+          echo "X64=$(sha256sum tnqr-mac-x64 | awk '{print $1}')" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout Homebrew tap
+        uses: actions/checkout@v4
+        with:
+          repository: steve-krisjanovs/homebrew-tools
+          token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+          path: homebrew-tools
+
+      - name: Update formula
+        run: |
+          VERSION="${{ steps.version.outputs.VERSION }}"
+          FORMULA="homebrew-tools/Formula/toneai-nux-qr.rb"
+          sed -i "s/version \".*\"/version \"$VERSION\"/" "$FORMULA"
+          sed -i "/on_arm/,/end/{s/sha256 \".*\"/sha256 \"${{ steps.sha.outputs.ARM64 }}\"/}" "$FORMULA"
+          sed -i "/on_intel/,/end/{s/sha256 \".*\"/sha256 \"${{ steps.sha.outputs.X64 }}\"/}" "$FORMULA"
+          echo "----- updated formula -----"; cat "$FORMULA"
+
+      - name: Commit and push
+        run: |
+          cd homebrew-tools
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/toneai-nux-qr.rb
+          git diff --quiet --cached || git commit -m "toneai-nux-qr ${{ steps.version.outputs.VERSION }}"
+          git push
           draft: false
           prerelease: false
