@@ -186,7 +186,7 @@ jobs:
             **macOS:** Download `tnqr-macos.pkg`
             > First time: right-click → Open to bypass Gatekeeper, or install via Homebrew:
             > ```
-            > brew tap steve-krisjanovs/tools
+            > brew tap cordfuse/tools
             > brew install toneai-nux-qr
             > ```
 
@@ -222,7 +222,7 @@ jobs:
       - name: Checkout Homebrew tap
         uses: actions/checkout@v4
         with:
-          repository: steve-krisjanovs/homebrew-tools
+          repository: cordfuse/homebrew-tools
           token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
           path: homebrew-tools
 

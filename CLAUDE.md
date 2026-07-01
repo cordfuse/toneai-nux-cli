@@ -82,7 +82,7 @@ Log format is JSONL — one JSON object per line:
 ## Post-clone setup
 
 On a fresh machine after cloning, remind the user to:
-1. Set the API key: `tnqr set-key <key>` — the key is stored on the MacBook Air in `~/.toneai-nux-qr/config.json`
+1. Set the API key: `tnqr set-key <key>` — stored locally on this machine in `~/.toneai-nux-qr/config.json`
 2. Set the default output dir: add `export TNQR_OUTPUT=~/Documents/tnqr` (or equivalent) to the shell profile (`~/.zshrc`, `~/.config/fish/config.fish`, etc.)
 
 ## Common commands
@@ -129,7 +129,7 @@ GitHub Actions on `v*` tags:
 1. Build binaries for all 4 platforms via `bun build --compile --target=<platform>`
 2. Build installers: Inno Setup (.exe), pkgbuild (.pkg), dpkg (.deb), rpmbuild (.rpm)
 3. Create GitHub release with all artifacts
-4. Auto-update `steve-krisjanovs/homebrew-tools` Formula via `HOMEBREW_TAP_TOKEN` secret
+4. Auto-update `cordfuse/homebrew-tools` Formula via `HOMEBREW_TAP_TOKEN` secret
 
 ## Related
 

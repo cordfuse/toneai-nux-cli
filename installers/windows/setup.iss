@@ -1,6 +1,6 @@
 #define MyAppName "toneai-nux-qr"
-#define MyAppPublisher "steve-krisjanovs"
-#define MyAppURL "https://github.com/steve-krisjanovs/toneai-nux-qr"
+#define MyAppPublisher "Cordfuse"
+#define MyAppURL "https://github.com/cordfuse/toneai-nux-cli"
 #define MyAppExeName "tnqr.exe"
 
 [Setup]
