@@ -41,7 +41,7 @@ chmod +x %{buildroot}/usr/local/bin/tnqr
 /usr/local/bin/tnqr
 
 %changelog
-* $(date '+%a %b %d %Y') Cordfuse <opensource@cordfuse.com> - $VERSION-1
+* $(date '+%a %b %d %Y') Cordfuse <steve.krisjanovs@gmail.com> - $VERSION-1
 - Release $VERSION
 EOF
 

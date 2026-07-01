@@ -18,7 +18,7 @@ Version: $VERSION
 Section: sound
 Priority: optional
 Architecture: amd64
-Maintainer: Cordfuse <opensource@cordfuse.com>
+Maintainer: Cordfuse <steve.krisjanovs@gmail.com>
 Description: AI-generated NUX MightyAmp QR tone presets
  Generate scannable NUX MightyAmp QR codes for any song or album
  using AI-powered tone matching with web search for per-recording
