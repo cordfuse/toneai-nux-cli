@@ -11,15 +11,15 @@ Describe what you want — a full album, a single song, a live set, a vibe — a
 
 ## Install
 
-**Windows** — download and run the installer from [Releases](https://github.com/steve-krisjanovs/toneai-nux-cli/releases)
+**Windows** — download and run the installer from [Releases](https://github.com/cordfuse/toneai-nux-cli/releases)
 
 **macOS (Homebrew):**
 ```bash
-brew tap steve-krisjanovs/tools
+brew tap cordfuse/tools
 brew install toneai-nux-qr
 ```
 
-**macOS (pkg):** Download `tnqr-macos.pkg` from [Releases](https://github.com/steve-krisjanovs/toneai-nux-cli/releases).
+**macOS (pkg):** Download `tnqr-macos.pkg` from [Releases](https://github.com/cordfuse/toneai-nux-cli/releases).
 > Right-click → Open the first time to bypass Gatekeeper.
 
 **Linux (Debian/Ubuntu):**

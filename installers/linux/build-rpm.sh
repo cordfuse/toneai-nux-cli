@@ -21,7 +21,7 @@ Version:        $VERSION
 Release:        1
 Summary:        AI-generated NUX MightyAmp QR tone presets
 License:        MIT
-URL:            https://github.com/steve-krisjanovs/toneai-nux-qr
+URL:            https://github.com/cordfuse/toneai-nux-cli
 Source0:        tnqr-%{version}.tar.gz
 
 %description
@@ -41,7 +41,7 @@ chmod +x %{buildroot}/usr/local/bin/tnqr
 /usr/local/bin/tnqr
 
 %changelog
-* $(date '+%a %b %d %Y') steve-krisjanovs <steve@innovia.ca> - $VERSION-1
+* $(date '+%a %b %d %Y') Cordfuse <steve.krisjanovs@gmail.com> - $VERSION-1
 - Release $VERSION
 EOF
 

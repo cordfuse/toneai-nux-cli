@@ -32,7 +32,7 @@ chmod +x "$PKG_ROOT/usr/local/bin/tnqr"
 # Build the .pkg
 pkgbuild \
   --root "$PKG_ROOT" \
-  --identifier "com.steve-krisjanovs.toneai-nux-qr" \
+  --identifier "com.cordfuse.toneai-nux-qr" \
   --version "$VERSION" \
   --install-location "/" \
   "$DIST_DIR/tnqr-$VERSION-macos.pkg"
