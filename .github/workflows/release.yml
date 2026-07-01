@@ -229,10 +229,43 @@ jobs:
       - name: Update formula
         run: |
           VERSION="${{ steps.version.outputs.VERSION }}"
+          mkdir -p homebrew-tools/Formula
           FORMULA="homebrew-tools/Formula/toneai-nux-qr.rb"
-          sed -i "s/version \".*\"/version \"$VERSION\"/" "$FORMULA"
-          sed -i "/on_arm/,/end/{s/sha256 \".*\"/sha256 \"${{ steps.sha.outputs.ARM64 }}\"/}" "$FORMULA"
-          sed -i "/on_intel/,/end/{s/sha256 \".*\"/sha256 \"${{ steps.sha.outputs.X64 }}\"/}" "$FORMULA"
+          cat > "$FORMULA" << 'FORMULA_EOF'
+          # Formula for homebrew-tools repo: cordfuse/homebrew-tools
+          # To install:
+          #   brew tap cordfuse/tools
+          #   brew install toneai-nux-qr
+
+          class ToneaiNuxQr < Formula
+            desc "AI-generated NUX MightyAmp QR tone presets for any song or album"
+            homepage "https://github.com/cordfuse/toneai-nux-cli"
+            version "VERSION_PLACEHOLDER"
+            license "MIT"
+
+            on_macos do
+              on_arm do
+                url "https://github.com/cordfuse/toneai-nux-cli/releases/download/v#{version}/tnqr-mac-arm64"
+                sha256 "ARM64_PLACEHOLDER"
+              end
+              on_intel do
+                url "https://github.com/cordfuse/toneai-nux-cli/releases/download/v#{version}/tnqr-mac-x64"
+                sha256 "X64_PLACEHOLDER"
+              end
+            end
+
+            def install
+              bin.install Dir["tnqr-mac-*"].first => "tnqr"
+            end
+
+            test do
+              assert_match "tnqr", shell_output("#{bin}/tnqr --help")
+            end
+          end
+          FORMULA_EOF
+          sed -i "s/VERSION_PLACEHOLDER/$VERSION/g" "$FORMULA"
+          sed -i "s/ARM64_PLACEHOLDER/${{ steps.sha.outputs.ARM64 }}/" "$FORMULA"
+          sed -i "s/X64_PLACEHOLDER/${{ steps.sha.outputs.X64 }}/" "$FORMULA"
           echo "----- updated formula -----"; cat "$FORMULA"
 
       - name: Commit and push
@@ -243,5 +276,3 @@ jobs:
           git add Formula/toneai-nux-qr.rb
           git diff --quiet --cached || git commit -m "toneai-nux-qr ${{ steps.version.outputs.VERSION }}"
           git push
-          draft: false
-          prerelease: false
